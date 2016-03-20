@@ -1,0 +1,6 @@
+TodoEntry:
+  name: todoTitle
+  type: string
+  required: true
+  in: body
+  description: Title for todo task.

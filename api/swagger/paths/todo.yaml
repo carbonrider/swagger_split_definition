@@ -1,0 +1,69 @@
+x-swagger-router-controller: todo
+description: TODO services
+put:
+  tags:
+    - todo
+  description: Creats new TODO entry.
+  summary: Create new TODO.
+  operationId: create
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - $ref: "../parameters/todo-parameters.yaml#/TodoEntry"
+  responses:
+    "200":
+      description: Successful creation of TODO.
+      schema:
+        $ref: "../models/todo-models.yaml#/NewEntryResponse"
+    default:
+      description: Error
+      schema:
+        $ref: "../models/todo-models.yaml#/TodoErrorResponse"
+get:
+  tags:
+    - todo
+  description: Retrieves all TODO created using service.
+  summary: Get all TODOs.
+  operationId: getAll
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  responses:
+    "200":
+      description: List of All TODOs
+      schema:
+        type: array
+        items:
+          $ref: "../models/todo-models.yaml#/Todo"
+    default:
+      description: Error
+      schema:
+        $ref: "../models/todo-models.yaml#/TodoErrorResponse"
+delete:
+  tags:
+    - todo
+  description: Deletes an entry from TODO collection.
+  summary: Delete TODO entry
+  operationId: deleteEntry
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - name: todoID
+      type: number
+      required: true
+      in: query
+      description: ID of the TODO to be deleted.
+  responses:
+    "200":
+      description: Successfull deletion of TODO
+      schema:
+        $ref: "../models/todo-models.yaml#/DeleteEntryResponse"
+    default:
+      description: Error
+      schema:
+        $ref: "../models/todo-models.yaml#/TodoErrorResponse"

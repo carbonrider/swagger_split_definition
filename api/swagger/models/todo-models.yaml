@@ -1,0 +1,25 @@
+Todo:
+  type: object
+  properties:
+    id:
+      type: number
+    title:
+      type: string
+NewEntryResponse:
+  required:
+    - message
+  properties:
+    message:
+      type: string
+DeleteEntryResponse:
+  required:
+    - message
+  properties:
+    message:
+      type: string
+TodoErrorResponse:
+  required:
+    - message
+  properties:
+    message:
+      type: string
